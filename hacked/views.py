@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import Post, Comment, User
-from .serializers import PostSerializer, CommentSerializer, UserSerializer
+from .models import Post, Comment #User
+from .serializers import PostSerializer, CommentSerializer #UserSerializer
 
 
 # Create your views here.
@@ -24,12 +24,12 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
-# User View: Display the user name, email, and password
-class UserList(generics.ListCreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+ # User View: Display the user name, email, and password
+# class UserList(generics.ListCreateAPIView):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
 
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+# class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
 

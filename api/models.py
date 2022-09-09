@@ -1,9 +1,6 @@
-
-
 from django.db import models
 
 # Create your models here.
-
 # Post Model: Display the post title, author, and body
 class Post(models.Model):
     user = models.CharField(max_length=100)
@@ -25,16 +22,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.title
-
-# User: Display the user name, email, and password
-# class User(models.Model):
-#     username = models.CharField(max_length=100)
-#     name = models.CharField(max_length=100)
-#     email = models.CharField(max_length=100)
-#     password = models.CharField(max_length=100)
-
-#     def __str__(self):
-#         return self.username
-
-
-
