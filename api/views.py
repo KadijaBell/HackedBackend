@@ -1,33 +1,19 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
-from .serializers import PostSerializer, CommentSerializer
-from .models import Post, Comment
 from rest_framework.exceptions import PermissionDenied
 from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
-from .serializers import UserSerializer,PostSerializer,CommentSerializer
+from .serializers import UserSerializer
 
 User = get_user_model()
 
 # Create your views here.
-# Post List View
+
 
 
 #class based view
-class PostView(APIView):
-    def get(self, request):
-        posts = Post.objects.all()
-        serializer = PostSerializer(posts, many=True)
-        return Response(serializer.data)
-
-class CommentView(APIView):
-    def get(self, request):
-        comments = Comment.objects.all()
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)
-
 
 #Authentication View
 class SignUpView(APIView):
@@ -43,20 +29,20 @@ class SignUpView(APIView):
 
 class LoginView(APIView):
 
-    def get_user(self, email):
+    def get_user(self, username):
         try:
-            return User.objects.get(email=email)
+            return User.objects.get(username=username)
         except User.DoesNotExist:
             raise PermissionDenied({'message': 'Invalid credentials, wish I could tell you which one'})
 
     def post(self, request):
 #getting data from form
-        email = request.data.get('email')
-        #username=request.data.get('username')
+        #email = request.data.get('email')
+        username = request.data.get('username')
         password = request.data.get('password')
 
-        user = self.get_user(email)
-        #user = self.get_user(username)
+        #user = self.get_user(email)
+        user = self.get_user(username)
         if not user.check_password(password):
             raise PermissionDenied({'message': 'Invalid credentials, wish I could tell you which one'})
 #if everything checks out then we can create a token
