@@ -1,61 +1,47 @@
-from rest_framework import generics
-from .models import Post #Comment
-from .serializers import PostSerializer #CommentSerializer
+from rest_framework import generics, permissions
+from .models import Post 
+from .serializers import PostSerializer 
 
 
 
 # Create your views here.
 
-
-# Post Create View
+# Post Create View(POST)
 class PostCreate(generics.CreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-# Post List View
+#Post List View(GET)
 class PostList(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 # Post Detail View
-class PostDetail(generics.RetrieveAPIView):
+class PostDetails(generics.RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
-#Post update view
+#Post update view(GET, PUT, PATCH and DELETE)
 class PostUpdate(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    
 
-#Post Delete View
+
+#Post Delete View(GET)
 class PostDelete(generics.RetrieveDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 #Post Edit View
-class PostEdit(generics.RetrieveUpdateDestroyAPIView):
+class PostEdit(generics.UpdateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-
-# #Comment Create View
-# class CommentCreate(generics.CreateAPIView):
-#     queryset = Comment.objects.all()
-#     serializer_class = CommentSerializer
-
-# # Comment List View
-# class CommentList(generics.ListCreateAPIView):
-#     queryset = Comment.objects.all()
-#     serializer_class = CommentSerializer
-
-# # Comment Detail View
-# class CommentDetail(generics.RetrieveAPIView):
-#     queryset = Comment.objects.all()
-#     serializer_class = CommentSerializer
-
-# #Comment update/delete view
-# class CommentUpdate(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Comment.objects.all()
-#     serializer_class = CommentSerializer
 

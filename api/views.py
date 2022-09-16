@@ -33,7 +33,7 @@ class LoginView(APIView):
         try:
             return User.objects.get(username=username)
         except User.DoesNotExist:
-            raise PermissionDenied({'message': 'Invalid credentials, wish I could tell you which one'})
+            raise PermissionDenied({'message': 'Invalid username, wish I could tell you which one'})
 
     def post(self, request):
 #getting data from form
@@ -41,10 +41,9 @@ class LoginView(APIView):
         username = request.data.get('username')
         password = request.data.get('password')
 
-        #user = self.get_user(email)
         user = self.get_user(username)
         if not user.check_password(password):
-            raise PermissionDenied({'message': 'Invalid credentials, wish I could tell you which one'})
+            raise PermissionDenied({'message': 'Invalid password, wish I could tell you which one'})
 #if everything checks out then we can create a token
         token = jwt.encode({'sub': user.id}, settings.SECRET_KEY, algorithm='HS256')
         return Response({'token': token, 'message': f'Welcome to the hacks,  {user.username}!'})
