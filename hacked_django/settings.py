@@ -47,7 +47,9 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         #app name then authentication 
@@ -146,7 +148,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000",] # Use whichever port your React Frontend is running on
+ CORS_ALLOWED_ORIGINS = [ "*"
+    # "http://127.0.0.1:3000", "https://git.heroku.com/lifehacked.git/", "https://git.heroku.com/lifehacked.git/api/login/", 
+    
+    ] # Use whichever port your React Frontend is running on
 # This option will also need to be configured to include your Applications URL when deployed online     
 CORS_ALLOW_METHODS = [
     "DELETE",
