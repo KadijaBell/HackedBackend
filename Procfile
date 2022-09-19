@@ -1,1 +1,1 @@
-web: gunicorn { HACKEDBACKEND }.wsgi
+web: gunicorn HACKEDBACKEND.wsgi
