@@ -4,11 +4,10 @@ Welcome to hacked, a place to track all your DIY & life hack needs!
 
 
 # Application Layout
-Screen Shot 2022-09-19 at 1.27.13 AM.png
+<img width="1437" alt="Screen Shot 2022-09-19 at 1 27 13 AM" src="https://user-images.githubusercontent.com/101621511/190962279-b87e5c50-af19-4ae4-b8a2-a02011115d00.png">
+<img width="1439" alt="Screen Shot 2022-09-19 at 1 28 30 AM" src="https://user-images.githubusercontent.com/101621511/190962284-22c6989f-cc97-4c57-a7f8-7290b0585a23.png">
+<img width="1440" alt="Screen Shot 2022-09-19 at 1 28 42 AM" src="https://user-images.githubusercontent.com/101621511/190962285-d00b23d6-ec2b-4150-987b-6a0d19fe37e8.png">
 
-Screen Shot 2022-09-19 at 1.28.30 AM.png
-
-Screen Shot 2022-09-19 at 1.28.42 AM.png
 
 
 # Technologies 
