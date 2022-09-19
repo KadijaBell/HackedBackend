@@ -11,8 +11,8 @@ from rest_framework import serializers
 
 # #Create your views here.
 # Post List
-@api_view(['GET'])
-def apiOverview(request):
+@api_view(['GET', 'PUT', 'DELETE', 'POST'])
+def hacks(request):
     api_urls = {
         'List': '/',
         'Create': '/post_create',
@@ -36,14 +36,14 @@ def post_create(request):
         return Response(status=status.Http_400_BAD_REQUEST)
 
 # Post List View
-@api_view(['GET'])
+@api_view(['GET', 'POST', 'DELETE', 'PUT'])
 def post_list(request):
     posts = Post.objects.all()
     post = PostSerializer(posts, many=True)
     return Response(post.data)
 
 # Post Update View
-@api_view(['POST'])
+@api_view(['POST', 'PUT', 'DELETE'])
 def post_update(request, pk):
     posts = Post.objects.get(pk=pk)
     post = PostSerializer(instance=post, data=request.data)
