@@ -13,3 +13,5 @@ djangorestframework = "*"
 
 [requires]
 python_version = "3.10"
+
+pip3 freeze > requirements.txt
