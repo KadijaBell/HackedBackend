@@ -1,1 +1,1 @@
-web: gunicorn HACKEDBACKEND.wsgi
+web: gunicorn hacked_django.wsgi
