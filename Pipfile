@@ -12,6 +12,7 @@ gunicorn = "*"
 django-on-heroku = "*"
 django-dotenv = "*"
 django-cors-headers = "*"
+jwt = "*"
 
 [dev-packages]
 
