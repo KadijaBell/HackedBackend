@@ -177,7 +177,7 @@ import dj_database_url
 import os
 
 
-BASE_DIR = Path(__file__).resolve().root.root
+Path(__file__).resolve(strict=True).parent.parent # which shows the root directory of your project().root.root
 
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
