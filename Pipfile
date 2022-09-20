@@ -10,6 +10,7 @@ psycopg2-binary = "*"
 djangorestframework = "*"
 gunicorn = "*"
 django-on-heroku = "*"
+django-dotenv = "*"
 
 [dev-packages]
 
